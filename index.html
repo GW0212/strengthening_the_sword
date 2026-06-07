@@ -91,7 +91,7 @@
         <details class="faq-inline">
           <summary>실행 안 될 때</summary>
           <div class="faq-body">
-            <p><b>파일 경로</b> — <code>assets/검 강화하기.swf</code>가 같은 폴더에 있는지 확인</p>
+            <p><b>파일 경로</b> — <code>assets/game.swf</code>가 같은 폴더에 있는지 확인</p>
             <p><b>정적 서버</b> — <code>file://</code> 프로토콜은 WASM 로드를 차단할 수 있음. <code>python -m http.server</code> 또는 VSCode Live Server로 실행</p>
             <p><b>강력 새로고침</b> — Ctrl+F5 또는 캐시 비우기 후 재시도</p>
           </div>
@@ -111,7 +111,7 @@
     const statusText    = document.getElementById('statusText');
 
     let rufflePlayer;
-    let currentSrc = "assets/\uac80 \uac15\ud654\ud558\uae30.swf";
+    let currentSrc = "assets/game.swf?v=20260607";
 
     function setStatus(state, msg) {
       statusDot.className = 'status-dot ' + state;
@@ -151,7 +151,7 @@
           stage.innerHTML = `
             <div class="error-state">
               <div class="error-code">ERR_SWF_LOAD_FAILED</div>
-              <p>SWF 파일을 불러올 수 없습니다.<br/>경로와 서버 구동 여부를 확인하세요.</p>
+              <p>SWF 파일을 불러올 수 없습니다.<br/>경로와 서버 구동 여부를 확인하세요.<br/><small>기본 경로: assets/game.swf</small></p>
               <code class="error-detail">${escapeHtml(String(err))}</code>
               <button class="retry-btn" onclick="createPlayer()">재시도</button>
             </div>`;
